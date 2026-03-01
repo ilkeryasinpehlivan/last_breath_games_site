@@ -123,15 +123,15 @@
                 <div class="underline"></div>
             </div>
             <div class="contact-container reveal">
-                <form id="contact-form">
+                <form id="contact-form" name="contact" method="POST" data-netlify="true">
                     <div class="input-group">
-                        <input type="text" placeholder="Full Name" required>
+                        <input type="text" name="name" placeholder="Full Name" required>
                     </div>
                     <div class="input-group">
-                        <input type="email" placeholder="Email Address" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
                     </div>
                     <div class="input-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
@@ -149,6 +149,8 @@
             </div>
         </div>
     </footer>
+
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="script.js"></script>
 </body>

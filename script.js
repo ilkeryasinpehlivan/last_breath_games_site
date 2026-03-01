@@ -25,14 +25,48 @@ document.addEventListener('DOMContentLoaded', () => {
     revealOnScroll();
     window.addEventListener('scroll', revealOnScroll);
 
-    // Form submission (mock)
+    // Form submission (Netlify AJAX)
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for reaching out to LAST BREATH GAMES! We will get back to you soon.');
-            contactForm.reset();
+
+            const formData = new FormData(contactForm);
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString(),
+            })
+                .then(() => {
+                    showToast("Mesajın başarıyla gönderildi! Teşekkürler.", "success");
+                    contactForm.reset();
+                })
+                .catch((error) => showToast("Bir hata oluştu: " + error, "error"));
         });
+    }
+
+    // Toast Function
+    function showToast(message, type = "success") {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+
+        toast.innerHTML = `
+            <div class="toast-icon">${type === "success" ? "✓" : "!"}</div>
+            <div class="toast-message">${message}</div>
+        `;
+
+        container.appendChild(toast);
+
+        // Slide in
+        setTimeout(() => toast.classList.add('show'), 100);
+
+        // Slide out and remove
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 600);
+        }, 4000);
     }
 
     // Smooth navigation reveal fix
