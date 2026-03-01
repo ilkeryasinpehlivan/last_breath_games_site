@@ -358,8 +358,78 @@ footer {
     transform: translateY(0);
 }
 
+/* Mobile Improvements & Responsiveness */
 @media (max-width: 968px) {
-    .hero h1 { font-size: 3rem; }
-    .about-grid, .games-grid { grid-template-columns: 1fr; }
-    .container { padding: 0 24px; }
+    .container {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    nav ul {
+        display: none; /* In a real app, you'd add a hamburger menu */
+    }
+
+    .hero {
+        background-attachment: scroll; /* Better for mobile performance */
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+
+    .hero .slogan {
+        font-size: 1.4rem;
+        color: var(--primary-purple);
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 15px;
+        display: block;
+    }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+    }
+
+    .about-grid, .about-stats, .games-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .stat-card, .contact-container {
+        padding: 30px 20px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
+
+/* Slogan Styling */
+.hero .slogan {
+    font-size: 1.8rem;
+    color: var(--primary-purple);
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(157, 0, 255, 0.4);
+}
+

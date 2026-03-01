@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
         reveals.forEach(reveal => {
             const windowHeight = window.innerHeight;
             const revealTop = reveal.getBoundingClientRect().top;
-            const revealPoint = 150;
+            const revealPoint = window.innerWidth < 768 ? 50 : 150; // Adjust for mobile
 
             if (revealTop < windowHeight - revealPoint) {
-                reveal.add('active');
+                reveal.classList.add('active'); // Fixed classList.add typo
             }
         });
     };
