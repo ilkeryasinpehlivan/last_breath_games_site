@@ -242,8 +242,9 @@ nav ul li a:hover {
 
 /* Games Grid */
 .games-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 32px;
 }
 
@@ -253,6 +254,7 @@ nav ul li a:hover {
     overflow: hidden;
     border: 1px solid rgba(157, 0, 255, 0.05);
     transition: var(--transition);
+    max-width: 400px;
 }
 
 .game-card:hover {
@@ -260,15 +262,21 @@ nav ul li a:hover {
     transform: scale(1.02);
 }
 
-.game-img-placeholder {
-    height: 250px;
+.game-img {
+    height: 400px;
     background: linear-gradient(45deg, var(--dark-purple), var(--deep-purple));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.game-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.game-card:hover .game-img img {
+    transform: scale(1.1);
 }
 
 .game-info {
