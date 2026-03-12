@@ -199,18 +199,53 @@ nav ul li a:hover {
     box-shadow: 0 0 10px var(--primary-purple);
 }
 
-/* About Grid */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+/* About Section Content */
+.about-content {
+    background: var(--deep-purple);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(157, 0, 255, 0.1);
+    margin-bottom: 60px;
 }
 
-.about-text p {
-    margin-bottom: 20px;
+.about-text-content p {
+    margin-bottom: 24px;
     font-size: 1.1rem;
     color: var(--text-muted);
+}
+
+.about-text-content h3 {
+    color: var(--primary-purple);
+    font-size: 1.5rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+.about-text-content ul {
+    list-style: none;
+    margin-bottom: 24px;
+    padding-left: 20px;
+}
+
+.about-text-content ul li {
+    position: relative;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.about-text-content ul li::before {
+    content: "•";
+    color: var(--primary-purple);
+    position: absolute;
+    left: -20px;
+    font-weight: bold;
+}
+
+.about-text-content strong {
+    color: var(--text-white);
 }
 
 .about-stats {
@@ -413,7 +448,7 @@ footer {
         width: 100%;
     }
 
-    .about-grid, .about-stats, .games-grid {
+    .about-stats, .games-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
