@@ -78,6 +78,15 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    height: 32px;
+    width: auto;
+    filter: drop-shadow(0 0 8px var(--primary-purple));
 }
 
 .logo span {
@@ -387,6 +396,21 @@ footer {
 
 .socials a:hover {
     color: var(--primary-purple);
+    text-shadow: 0 0 10px var(--primary-purple);
+}
+
+.socials a.store-link {
+    color: var(--primary-purple);
+    border: 1px solid rgba(157, 0, 255, 0.3);
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.socials a.store-link:hover {
+    background: rgba(157, 0, 255, 0.1);
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
 }
 
 /* Animations */
