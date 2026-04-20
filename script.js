@@ -25,24 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
     revealOnScroll();
     window.addEventListener('scroll', revealOnScroll);
 
-    // Form submission (Netlify AJAX)
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    // Copy Email Functionality
+    const copyEmailBtn = document.getElementById('copy-email');
+    const emailText = document.getElementById('contact-email');
 
-            const formData = new FormData(contactForm);
-
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString(),
-            })
-                .then(() => {
-                    showToast("Mesajın başarıyla gönderildi! Teşekkürler.", "success");
-                    contactForm.reset();
-                })
-                .catch((error) => showToast("Bir hata oluştu: " + error, "error"));
+    if (copyEmailBtn && emailText) {
+        copyEmailBtn.addEventListener('click', () => {
+            const email = emailText.innerText;
+            navigator.clipboard.writeText(email).then(() => {
+                showToast("Email adresi panoya kopyalandı!", "success");
+            }).catch(err => {
+                showToast("Kopyalama başarısız oldu.", "error");
+            });
         });
     }
 

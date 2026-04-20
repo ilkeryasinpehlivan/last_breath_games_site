@@ -337,35 +337,78 @@ nav ul li a:hover {
     font-size: 0.9rem;
 }
 
-/* Contact Form */
-.contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--deep-purple);
-    padding: 50px;
-    border-radius: 12px;
-    border: 1px solid rgba(157, 0, 255, 0.1);
+/* Contact Section */
+.contact-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.input-group {
-    margin-bottom: 24px;
-}
-
-input, textarea {
+.contact-card {
+    max-width: 450px;
     width: 100%;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    outline: none;
+    background: rgba(15, 0, 30, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(157, 0, 255, 0.2);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(157, 0, 255, 0.1);
     transition: var(--transition);
 }
 
-input:focus, textarea:focus {
+.contact-card:hover {
+    transform: translateY(-5px);
     border-color: var(--primary-purple);
-    background: rgba(157, 0, 255, 0.05);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(157, 0, 255, 0.2);
+}
+
+.contact-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: white;
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.contact-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--text-white);
+}
+
+.email-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.contact-actions .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    width: auto;
+}
+
+.contact-actions a.btn-secondary {
+    margin-left: 0;
 }
 
 /* Footer */
@@ -477,8 +520,16 @@ footer {
         gap: 40px;
     }
 
-    .stat-card, .contact-container {
+    .stat-card {
         padding: 30px 20px;
+    }
+
+    .contact-actions {
+        flex-direction: column;
+    }
+
+    .contact-actions .btn {
+        width: 100%;
     }
 
     .section-header h2 {
